@@ -51,6 +51,6 @@ public class Main
 
         System.out.println("Original Yes Value: " + yes);
         System.out.println("Inverse Yes Value: " + !yes);
-        
+
     }
 }
