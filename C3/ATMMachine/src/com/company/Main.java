@@ -12,38 +12,38 @@ public class Main
         int withdrawal = 137;
 
         int optimal5 = withdrawal/5;
-        int optimal1 = withdrawal%optimal5;
+        int optimal1 = withdrawal%5;
 
         System.out.println("For the amount of $" + withdrawal + ", the optimal number of $5s is " +
                 optimal5 + " and the optimal number of $1s is " + optimal1 + ".");
 
         withdrawal = 100;
         optimal5 = withdrawal/5;
-        optimal1 = withdrawal%optimal5;
+        optimal1 = withdrawal%5;
         System.out.println("For the amount of $" + withdrawal + ", the optimal number of $5s is " +
                 optimal5 + " and the optimal number of $1s is " + optimal1 + ".");
 
         withdrawal = 20;
         optimal5 = withdrawal/5;
-        optimal1 = withdrawal%optimal5;
+        optimal1 = withdrawal%5;
         System.out.println("For the amount of $" + withdrawal + ", the optimal number of $5s is " +
                 optimal5 + " and the optimal number of $1s is " + optimal1 + ".");
 
         withdrawal = 17;
         optimal5 = withdrawal/5;
-        optimal1 = withdrawal%optimal5;
+        optimal1 = withdrawal%5;
         System.out.println("For the amount of $" + withdrawal + ", the optimal number of $5s is " +
                 optimal5 + " and the optimal number of $1s is " + optimal1 + ".");
 
         withdrawal = 15;
         optimal5 = withdrawal/5;
-        optimal1 = withdrawal%optimal5;
+        optimal1 = withdrawal%5;
         System.out.println("For the amount of $" + withdrawal + ", the optimal number of $5s is " +
                 optimal5 + " and the optimal number of $1s is " + optimal1 + ".");
 
         withdrawal = 2;
         optimal5 = withdrawal/5;
-        optimal1 = withdrawal/1;
+        optimal1 = withdrawal%5;
         System.out.println("For the amount of $" + withdrawal + ", the optimal number of $5s is " +
                 optimal5 + " and the optimal number of $1s is " + optimal1 + ".");
 

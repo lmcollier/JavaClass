@@ -28,5 +28,11 @@ public class Main
         x = 10;
         compare = (0 < x && x < 6);
         System.out.println(compare);
+
+        // Another way to do inside and outside a range
+        // int x = -1;
+        // boolean insideRange = (0 < x && x < 6);
+        // boolean outsideRange = !insideRange;
+        // System.out.println(outsideRange)
     }
 }

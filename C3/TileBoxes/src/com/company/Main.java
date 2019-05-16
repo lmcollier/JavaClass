@@ -25,7 +25,15 @@ public class Main
         System.out.println("The number of tiles needed for wastage is " + wastage + ".");
 
         if (wastage > 0)
+        {
             boxesNeed++;
+            if (wastage > 8)
+            {
+                boxesNeed++;
+            }
+        }
+
+        boxesNeed = (int)boxesNeed;
 
         System.out.println("We need " + boxesNeed + " boxes of tile to cover the floor.");
 
