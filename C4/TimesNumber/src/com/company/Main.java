@@ -10,10 +10,19 @@ public class Main
         int userNumber = userInput.nextInt();
         int sum = 1;
 
-        while (sum <= 10)
+        boolean error = (1 < userNumber) && (userNumber < 10);
+
+        if (error)
         {
-            System.out.println(userNumber + " X " + sum + " = " + (sum*userNumber));
-            sum++;
+            while (sum <= 10)
+            {
+                System.out.println(userNumber + " X " + sum + " = " + (sum*userNumber));
+                sum++;
+            }
+        }
+        else
+        {
+            System.out.println("That number is out of range.");
         }
     }
 }
