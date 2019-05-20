@@ -7,14 +7,18 @@ public class Main
     {
         java.util.Scanner userInput = new java.util.Scanner(System.in);
         System.out.println("Please enter a number: ");
-        int userNumber = userInput.nextInt();
-        int sum = 0;
+        int userNumber;
+        int sum = -1;
 
         do
         {
-            System.out.println("Please enter a number: ");
             userNumber = userInput.nextInt();
             sum++;
+
+            if (userNumber !=0)
+            {
+                System.out.println("Please enter another number: ");
+            }
         }
         while (userNumber != 0);
 
