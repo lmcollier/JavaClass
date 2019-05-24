@@ -19,6 +19,10 @@ public class Main
         getNextColor(TrafficLightColor.RED);
         getNextColor(TrafficLightColor.YELLOW);
 
+        getNextColorLouis(TrafficLightColor.GREEN);
+        getNextColorLouis(TrafficLightColor.RED);
+        getNextColorLouis(TrafficLightColor.YELLOW);
+
     }
 
     private static void cityTraffic(TrafficLightColor cityStreet)
@@ -61,6 +65,31 @@ public class Main
         else
         {
             System.out.println("The light is currently out of order!");
+        }
+    }
+
+    private static void getNextColorLouis (TrafficLightColor trafficLightColor)
+    {
+        TrafficLightColor nextColor;
+
+        switch (trafficLightColor)
+        {
+            case RED:
+                nextColor = TrafficLightColor.GREEN;
+                System.out.println(nextColor);
+                break;
+            case YELLOW:
+                nextColor = TrafficLightColor.RED;
+                System.out.println(nextColor);
+                break;
+
+            case GREEN:
+                nextColor = TrafficLightColor.YELLOW;
+                System.out.println(nextColor);
+                break;
+
+            default:
+                System.out.println("Out of Order");
         }
     }
 }
