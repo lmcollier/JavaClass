@@ -24,12 +24,12 @@ public class Main
 
         boolean keepRunning = true;
 
-        java.util.Scanner input = new java.util.Scanner(System.in);
-        System.out.println("Please make a selection: ");
-        char choice = input.next().charAt(0);
-
         while (keepRunning)
         {
+            java.util.Scanner input = new java.util.Scanner(System.in);
+            System.out.println("Please make a selection: ");
+            char choice = input.next().charAt(0);
+
             switch (choice)
             {
                 case 'W':
