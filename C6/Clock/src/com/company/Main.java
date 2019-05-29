@@ -8,6 +8,8 @@ public class Main
         Clock clock = new Clock(9, 34, false);
         printTimeSummary(clock);
 
+
+
     }
 
     private static void printTimeSummary(Clock clock)

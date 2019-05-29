@@ -30,7 +30,29 @@ public class Date
 
     public void getFormattedDate()
     {
-        System.out.println(year + "-" + month + "-" + day);
+        if (month < 9)
+        {
+            if (day < 9)
+            {
+                System.out.println(year + "-0" + month + "-0" + day);
+            }
+            else
+            {
+                System.out.println(year + "-0" + month + "-" + day);
+            }
+        }
+        else
+        {
+            if (day < 9)
+            {
+                System.out.println(year + "-" + month + "-0" + day);
+            }
+            else
+            {
+                System.out.println(year + "-" + month + "-" + day);
+            }
+        }
+
     }
 
 
