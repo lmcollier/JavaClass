@@ -104,33 +104,28 @@ public class Clock
     {
         if (!pm)
         {
-            if (minute < 9)
-            {
-                String.valueOf(minute);
-                String.valueOf(hour);
-                return (hour + ":" + "0" + minute + " AM");
-            }
-            else
-            {
-                String.valueOf(minute);
-                String.valueOf(hour);
-                return (hour + ":" + minute + " AM");
-            }
+            return amMinutes();
         }
         else
         {
             if (minute < 9)
             {
-                hour = hour - 12;
-                String.valueOf(minute);
-                String.valueOf(hour);
+                if (hour != 12)
+                {
+                    hour = hour - 12;
+                    String.valueOf(minute);
+                    String.valueOf(hour);
+                }
                 return (hour + ":" + "0" + minute + " PM");
             }
             else
             {
-                hour = hour - 12;
-                String.valueOf(minute);
-                String.valueOf(hour);
+                if (hour != 12)
+                {
+                    hour = hour - 12;
+                    String.valueOf(minute);
+                    String.valueOf(hour);
+                }
                 return (hour + ":" + minute + " PM");
             }
         }
@@ -142,54 +137,11 @@ public class Clock
 
         if (!pm)
         {
-            if (minute < 9)
-            {
-                String.valueOf(minute);
-                String.valueOf(hour);
-                return (hour + ":" + "0" + minute + " AM");
-            }
-            else
-            {
-                String.valueOf(minute);
-                String.valueOf(hour);
-                return (hour + ":" + minute + " AM");
-            }
+            return amMinutes();
         }
         else
         {
-            if (minute < 9)
-            {
-                if(hour > 12)
-                {
-                    hour = hour - 12;
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " PM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " PM");
-                }
-
-            }
-            else
-            {
-                if(hour > 12)
-                {
-                    hour = hour - 12;
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " PM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " PM");
-                }
-            }
+            return pmMinutes();
         }
     }
 
@@ -199,54 +151,11 @@ public class Clock
 
         if (!pm)
         {
-            if (minute < 9)
-            {
-                String.valueOf(minute);
-                String.valueOf(hour);
-                return (hour + ":" + "0" + minute + " AM");
-            }
-            else
-            {
-                String.valueOf(minute);
-                String.valueOf(hour);
-                return (hour + ":" + minute + " AM");
-            }
+            return amMinutes();
         }
         else
         {
-            if (minute < 9)
-            {
-                if(hour > 12)
-                {
-                    hour = hour - 12;
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " PM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " PM");
-                }
-
-            }
-            else
-            {
-                if(hour > 12)
-                {
-                    hour = hour - 12;
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " PM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " PM");
-                }
-            }
+           return pmMinutes();
         }
     }
 
@@ -261,108 +170,22 @@ public class Clock
 
             if (!pm)
             {
-                if (minute < 9)
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " AM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " AM");
-                }
+               return amMinutes();
             }
             else
             {
-                if (minute < 9)
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-
-                }
-                else
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                }
+                return pmMinutes();
             }
         }
         else
         {
             if (!pm)
             {
-                if (minute < 9)
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " AM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " AM");
-                }
+                return amMinutes();
             }
             else
             {
-                if (minute < 9)
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-
-                }
-                else
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                }
+                return pmMinutes();
             }
         }
     }
@@ -378,108 +201,22 @@ public class Clock
 
             if (!pm)
             {
-                if (minute < 9)
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " AM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " AM");
-                }
+                return amMinutes();
             }
             else
             {
-                if (minute < 9)
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-
-                }
-                else
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                }
+                return pmMinutes();
             }
         }
         else
         {
             if (!pm)
             {
-                if (minute < 9)
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + "0" + minute + " AM");
-                }
-                else
-                {
-                    String.valueOf(minute);
-                    String.valueOf(hour);
-                    return (hour + ":" + minute + " AM");
-                }
+                return amMinutes();
             }
             else
             {
-                if (minute < 9)
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + "0" + minute + " PM");
-                    }
-
-                }
-                else
-                {
-                    if(hour > 12)
-                    {
-                        hour = hour - 12;
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                    else
-                    {
-                        String.valueOf(minute);
-                        String.valueOf(hour);
-                        return (hour + ":" + minute + " PM");
-                    }
-                }
+                return pmMinutes();
             }
         }
     }
@@ -510,6 +247,59 @@ public class Clock
     {
         alarmOn = false;
         buzz(false);
+    }
+
+    public String pmMinutes()
+    {
+        if (minute < 9)
+        {
+            if(hour > 12)
+            {
+                hour = hour - 12;
+                String.valueOf(minute);
+                String.valueOf(hour);
+                return (hour + ":" + "0" + minute + " PM");
+            }
+            else
+            {
+                String.valueOf(minute);
+                String.valueOf(hour);
+                return (hour + ":" + "0" + minute + " PM");
+            }
+
+        }
+        else
+        {
+            if(hour > 12)
+            {
+                hour = hour - 12;
+                String.valueOf(minute);
+                String.valueOf(hour);
+                return (hour + ":" + minute + " PM");
+            }
+            else
+            {
+                String.valueOf(minute);
+                String.valueOf(hour);
+                return (hour + ":" + minute + " PM");
+            }
+        }
+    }
+
+    public String amMinutes()
+    {
+        if (minute < 9)
+        {
+            String.valueOf(minute);
+            String.valueOf(hour);
+            return (hour + ":" + "0" + minute + " AM");
+        }
+        else
+        {
+            String.valueOf(minute);
+            String.valueOf(hour);
+            return (hour + ":" + minute + " AM");
+        }
     }
 
 }
