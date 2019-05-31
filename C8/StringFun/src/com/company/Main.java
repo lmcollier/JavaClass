@@ -29,6 +29,8 @@ public class Main
         System.out.println("-----------");
         StringUtil.printPhoneNumber("501-555-0100");
         System.out.println("-----------");
+        StringUtil.printPhoneNumber("501463WELL");
+        System.out.println("-----------");
         StringUtil.findFirstE("Hello");
         StringUtil.findFirstE("Goodbye");
         System.out.println("-----------");
