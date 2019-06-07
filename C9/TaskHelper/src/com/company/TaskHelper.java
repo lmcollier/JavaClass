@@ -1,80 +1,52 @@
 package com.company;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class TaskHelper
 {
+    Queue<String> myQueue = new LinkedList<>();
+
     public void run()
     {
-        Queue<String> myQueue = new LinkedList<>();
         boolean keepRunning = true;
 
         Scanner input = new Scanner(System.in);
+        printMenu();
 
         do
         {
-            printMenu();
             String task = input.nextLine();
             String[] words = task.split(" ", 2);
-            String breakApart = words[1];
-            String[] multipleTasks = breakApart.split(",");
             String action = words[0].toUpperCase();
-            char comma = ',';
-            String multiple = String.valueOf(comma);
-            Scanner number = new Scanner(System.in);
 
             switch (action)
             {
                 case "ADD":
-                    boolean yes = myQueue.contains(words[1]);
-
-                    if (!yes)
-                    {
-                        if (words[1].contains(multiple))
-                        {
-                            for (int i = 0; i < multipleTasks.length; i++)
-                            {
-                                myQueue.add(multipleTasks[i]);
-                            }
-                        }
-                        else
-                        {
-                            myQueue.add(words[1]);
-                        }
-                    }
-                    else
-                    {
-                        System.out.println("The task is already on your list!");
-                    }
+                    add(words[1]);
                     break;
                 case "PEEK":
-                    System.out.println("Task after next: " + myQueue.peek());
+                    peek();
                     break;
                 case "REMOVE":
-                    System.out.println("Task completed: " + myQueue.remove());
+                    remove();
                     break;
                 case "HOWMANY":
                     System.out.println("Number of tasks remaining: " + myQueue.size());
                     break;
                 case "CHECK":
-                    yes = myQueue.contains(words[1]);
-                    if (yes)
-                    {
-                        System.out.println("Fortunately, you already know about that one.");
-                    }
-                    else
-                    {
-                        System.out.println("Sadly, that task is not on the list.");
-                    }
+                    check(words[1]);
                     break;
                 case "WAIT":
                     myQueue.add(myQueue.remove());
                     break;
                 case "LIST":
-                    System.out.println(myQueue);
+                    list();
+                    break;
+                case "HALVE":
+                    halve();
+                    break;
+                case "REVERSE":
+                    reverse();
                     break;
                 case "FLEE":
                     myQueue.clear();
@@ -90,7 +62,122 @@ public class TaskHelper
 
     }
 
-    public void printMenu()
+    private void reverse()
+    {
+        ArrayList<String> reorder = new ArrayList<>();
+
+        for (String tasks : myQueue)
+        {
+            reorder.add(tasks);
+        }
+
+        Collections.reverse(reorder);
+
+        myQueue.clear();
+
+        for (String tasks : reorder)
+        {
+            myQueue.add(tasks);
+        }
+
+    }
+
+    private void add(String value)
+    {
+        char comma = ',';
+        String multiple = String.valueOf(comma);
+
+        if (!myQueue.contains(value))
+        {
+            if (value.contains(multiple))
+            {
+                String breakApart = value;
+                String[] multipleTasks = breakApart.split(", ");
+
+                for (int i = 0; i < multipleTasks.length; i++)
+                {
+                    myQueue.add(multipleTasks[i]);
+                }
+            }
+            else
+            {
+                myQueue.add(value);
+            }
+        }
+        else
+        {
+            System.out.println("The task is already on your list!");
+        }
+    }
+
+    private void peek()
+    {
+        System.out.println("How many tasks do you want to see?");
+        Scanner input = new Scanner(System.in);
+        int number = input.nextInt();
+
+        for (String listFormat : myQueue)
+        {
+            if (number > 0)
+            {
+                number--;
+                System.out.println("Task after next: " + listFormat);
+            }
+        }
+    }
+
+    private void remove()
+    {
+        System.out.println("How many tasks do you want to remove?");
+        Scanner input = new Scanner(System.in);
+        int number = input.nextInt();
+
+        for (int i = number; i > 0; i--)
+        {
+            System.out.println("Task completed: " + myQueue.remove());
+        }
+    }
+
+    private void check(String value)
+    {
+        if (myQueue.contains(value))
+        {
+            System.out.println("Fortunately, you already know about that one.");
+        }
+        else
+        {
+            System.out.println("Sadly, that task is not on the list.");
+        }
+    }
+
+    private void list()
+    {
+        for (String listFormat : myQueue)
+        {
+            System.out.println(listFormat);
+        }
+    }
+
+    private void halve()
+    {
+        boolean everyOther = true;
+        ArrayList<String> toRemove = new ArrayList<>();
+        for (String tasks : myQueue)
+        {
+            if (everyOther)
+            {
+                toRemove.add(tasks);
+                everyOther = false;
+            }
+            else
+            {
+                everyOther = true;
+            }
+        }
+        myQueue.removeAll(toRemove);
+    }
+
+    private void printMenu()
     {
         System.out.print("\n");
         System.out.println("Please choose from the following options: ");
@@ -101,8 +188,10 @@ public class TaskHelper
         System.out.println("     CHECK to search tasks.");
         System.out.println("     WAIT to move task to end of queue.");
         System.out.println("     LIST to list remaining tasks.");
+        System.out.println("     HALVE to remove every other task.");
         System.out.println("     FLEE to clear the list.");
         System.out.println("     EXIT to exit system.");
         System.out.println("-----------------------------------------------------");
     }
+
 }
